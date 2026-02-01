@@ -1,9 +1,20 @@
 :root {
     --bg-color: #1a1a1a;
+    --machine-bg-color: #2a2a2a;
     --primary-color: #ffde00;
     --text-color: #ffffff;
     --shadow-color: rgba(0, 0, 0, 0.5);
     --glow-color: rgba(255, 222, 0, 0.7);
+    --border-color: #333;
+}
+
+body.light-mode {
+    --bg-color: #f0f0f0;
+    --machine-bg-color: #ffffff;
+    --text-color: #333333;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --glow-color: rgba(255, 222, 0, 0);
+    --border-color: #ddd;
 }
 
 body {
@@ -16,15 +27,23 @@ body {
     color: var(--text-color);
     margin: 0;
     background-image: url('data:image/svg+xml,%3Csvg width="6" height="6" viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%234a4a4a" fill-opacity="0.2"%3E%3Cpath d="M5 0h1L0 6V5zM6 5v1H0V5z"/%3E%3C/g%3E%3C/svg%3E');
+    transition: background-color 0.3s, color 0.3s;
 }
 
+body.light-mode {
+    background-image: url('data:image/svg+xml,%3Csvg width="6" height="6" viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23cccccc" fill-opacity="0.3"%3E%3Cpath d="M5 0h1L0 6V5zM6 5v1H0V5z"/%3E%3C/g%3E%3C/svg%3E');
+}
+
+
 .lotto-machine {
+    position: relative;
     text-align: center;
-    background: #2a2a2a;
+    background: var(--machine-bg-color);
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 20px 40px var(--shadow-color);
-    border: 1px solid #333;
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 h1 {
@@ -32,6 +51,7 @@ h1 {
     color: var(--primary-color);
     text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color);
     margin-bottom: 30px;
+    transition: text-shadow 0.3s;
 }
 
 .display {
@@ -41,6 +61,10 @@ h1 {
     gap: 15px;
     margin-bottom: 40px;
     min-height: 100px;
+}
+
+lotto-ball {
+    display: inline-block;
 }
 
 #generate-btn {
@@ -59,6 +83,27 @@ h1 {
 #generate-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0,0,0,0.4), 0 0 30px var(--glow-color);
+}
+
+#theme-toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--machine-bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+#theme-toggle-btn:hover {
+    transform: scale(1.1);
 }
 
 @media (max-width: 600px) {

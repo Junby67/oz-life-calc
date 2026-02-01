@@ -53,3 +53,29 @@ generateBtn.addEventListener('click', () => {
         }, index * 300); // Add a slight delay for animation
     });
 });
+
+// --- Theme Toggle ---
+const themeToggleBtn = document.getElementById('theme-toggle-btn');
+const body = document.body;
+const themeKey = 'theme-preference';
+
+const applyTheme = (theme) => {
+    if (theme === 'light') {
+        body.classList.add('light-mode');
+        themeToggleBtn.textContent = '🌙';
+    } else {
+        body.classList.remove('light-mode');
+        themeToggleBtn.textContent = '☀️';
+    }
+};
+
+themeToggleBtn.addEventListener('click', () => {
+    let currentTheme = body.classList.contains('light-mode') ? 'light' : 'dark';
+    let newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    localStorage.setItem(themeKey, newTheme);
+    applyTheme(newTheme);
+});
+
+// Load saved theme on startup
+const savedTheme = localStorage.getItem(themeKey) || 'dark';
+applyTheme(savedTheme);
