@@ -1,0 +1,76 @@
+:root {
+    --bg-color: #1a1a1a;
+    --primary-color: #ffde00;
+    --text-color: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --glow-color: rgba(255, 222, 0, 0.7);
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    background-image: url('data:image/svg+xml,%3Csvg width="6" height="6" viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%234a4a4a" fill-opacity="0.2"%3E%3Cpath d="M5 0h1L0 6V5zM6 5v1H0V5z"/%3E%3C/g%3E%3C/svg%3E');
+}
+
+.lotto-machine {
+    text-align: center;
+    background: #2a2a2a;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px var(--shadow-color);
+    border: 1px solid #333;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color);
+    margin-bottom: 30px;
+}
+
+.display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    min-height: 100px;
+}
+
+#generate-btn {
+    background-color: var(--primary-color);
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3), 0 0 20px var(--glow-color);
+}
+
+#generate-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4), 0 0 30px var(--glow-color);
+}
+
+@media (max-width: 600px) {
+    .lotto-machine {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .display {
+        flex-wrap: wrap;
+    }
+}
