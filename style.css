@@ -127,28 +127,19 @@ h1 {
 }
 
 .affiliate-link {
-    display: inline-block;
-    background-color: var(--machine-bg-color);
-    color: var(--text-color);
-    text-decoration: none;
-    border: 1px solid var(--border-color);
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: block; /* Force it to a new line */
+    font-size: 2rem; /* Make it huge */
+    color: red !important; /* Make it stand out and override other rules */
+    background-color: yellow;
+    text-align: center;
     margin-top: 20px;
-    width: 60%;
+    padding: 10px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .affiliate-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    background-color: var(--primary-color);
-    color: #000;
-    border-color: var(--primary-color);
+    background-color: orange;
 }
 
 #theme-toggle-btn {
