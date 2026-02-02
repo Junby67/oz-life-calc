@@ -20,12 +20,14 @@ body.light-mode {
 body {
     font-family: 'Arial', sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
+    padding: 20px 0; /* Add some vertical padding */
     background-image: url('data:image/svg+xml,%3Csvg width="6" height="6" viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%234a4a4a" fill-opacity="0.2"%3E%3Cpath d="M5 0h1L0 6V5zM6 5v1H0V5z"/%3E%3C/g%3E%3C/svg%3E');
     transition: background-color 0.3s, color 0.3s;
 }
@@ -127,19 +129,28 @@ h1 {
 }
 
 .affiliate-link {
-    display: block; /* Force it to a new line */
-    font-size: 2rem; /* Make it huge */
-    color: red !important; /* Make it stand out and override other rules */
-    background-color: yellow;
-    text-align: center;
-    margin-top: 20px;
-    padding: 10px;
-    font-weight: bold;
+    display: inline-block;
+    background-color: var(--machine-bg-color);
+    color: var(--text-color);
     text-decoration: none;
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    margin-top: 20px;
+    width: 60%;
 }
 
 .affiliate-link:hover {
-    background-color: orange;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    background-color: var(--primary-color);
+    color: #000;
+    border-color: var(--primary-color);
 }
 
 #theme-toggle-btn {
@@ -163,6 +174,18 @@ h1 {
     transform: scale(1.1);
 }
 
+.comments-section {
+    width: 90%;
+    max-width: 500px;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--machine-bg-color);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
 @media (max-width: 600px) {
     .lotto-machine {
         padding: 20px;
@@ -170,5 +193,10 @@ h1 {
 
     h1 {
         font-size: 2rem;
+    }
+
+    .comments-section {
+        margin-top: 20px;
+        padding: 15px;
     }
 }
