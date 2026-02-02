@@ -37,6 +37,9 @@ body.light-mode {
 
 .lotto-machine {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     background: var(--machine-bg-color);
     padding: 40px;
@@ -44,6 +47,8 @@ body.light-mode {
     box-shadow: 0 20px 40px var(--shadow-color);
     border: 1px solid var(--border-color);
     transition: background-color 0.3s, border-color 0.3s;
+    width: 90%;
+    max-width: 500px;
 }
 
 h1 {
@@ -65,6 +70,8 @@ h1 {
     border: 2px dashed var(--border-color);
     border-radius: 15px;
     transition: border-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .food-display h2 {
@@ -111,6 +118,7 @@ h1 {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3), 0 0 20px var(--glow-color);
+    width: 80%;
 }
 
 #generate-btn:hover {
@@ -120,10 +128,10 @@ h1 {
 
 .affiliate-link {
     display: inline-block;
-    background-color: var(--primary-color);
-    color: #000;
+    background-color: var(--machine-bg-color);
+    color: var(--text-color);
     text-decoration: none;
-    border: none;
+    border: 1px solid var(--border-color);
     padding: 10px 20px;
     font-size: 1rem;
     font-weight: bold;
@@ -131,12 +139,16 @@ h1 {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    margin-top: 20px; /* Add some space above the link */
+    margin-top: 20px;
+    width: 60%;
 }
 
 .affiliate-link:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    background-color: var(--primary-color);
+    color: #000;
+    border-color: var(--primary-color);
 }
 
 #theme-toggle-btn {
@@ -167,9 +179,5 @@ h1 {
 
     h1 {
         font-size: 2rem;
-    }
-
-    .display {
-        flex-wrap: wrap;
     }
 }
