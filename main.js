@@ -1,57 +1,25 @@
-class LottoBall extends HTMLElement {
-    constructor() {
-        super();
-        const shadow = this.attachShadow({ mode: 'open' });
-        const number = this.getAttribute('number');
-
-        const ball = document.createElement('div');
-        ball.style.width = '60px';
-        ball.style.height = '60px';
-        ball.style.borderRadius = '50%';
-        ball.style.display = 'flex';
-        ball.style.justifyContent = 'center';
-        ball.style.alignItems = 'center';
-        ball.style.fontSize = '1.8rem';
-        ball.style.fontWeight = 'bold';
-        ball.style.color = '#000';
-        ball.style.boxShadow = 'inset -5px -5px 10px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.5)';
-        ball.style.textShadow = '0 2px 3px rgba(0,0,0,0.3)';
-
-        // Color the balls based on the number
-        const num = parseInt(number, 10);
-        if (num <= 10) ball.style.backgroundColor = '#fbc400'; // Yellow
-        else if (num <= 20) ball.style.backgroundColor = '#69c8f2'; // Blue
-        else if (num <= 30) ball.style.backgroundColor = '#ff7272'; // Red
-        else if (num <= 40) ball.style.backgroundColor = '#aaa'; // Gray
-        else ball.style.backgroundColor = '#b0d840'; // Green
-
-        ball.textContent = number;
-
-        shadow.appendChild(ball);
-    }
-}
-
-customElements.define('lotto-ball', LottoBall);
-
 const generateBtn = document.getElementById('generate-btn');
-const display = document.querySelector('.display');
+const display = document.querySelector('.food-display');
+
+const foodList = [
+    "치킨", "피자", "삼겹살", "족발", "보쌈", "떡볶이", "햄버거", "초밥", "파스타",
+    "김치찌개", "된장찌개", "부대찌개", "순두부찌개", "곱창", "막창", "닭발", "감자탕",
+    "해물찜", "아구찜", "라멘", "쌀국수", "마라탕", "양꼬치", "짜장면", "짬뽕", "탕수육"
+];
 
 generateBtn.addEventListener('click', () => {
-    display.innerHTML = ''; // Clear previous numbers
-    const numbers = new Set();
-    while (numbers.size < 6) {
-        numbers.add(Math.floor(Math.random() * 45) + 1);
-    }
+    // Add a class to trigger the animation
+    display.classList.remove('reveal');
+    
+    // Get a random food item
+    const randomIndex = Math.floor(Math.random() * foodList.length);
+    const recommendedFood = foodList[randomIndex];
 
-    const sortedNumbers = Array.from(numbers).sort((a, b) => a - b);
-
-    sortedNumbers.forEach((number, index) => {
-        setTimeout(() => {
-            const lottoBall = document.createElement('lotto-ball');
-            lottoBall.setAttribute('number', number);
-            display.appendChild(lottoBall);
-        }, index * 300); // Add a slight delay for animation
-    });
+    // Update the display after a short delay to allow the animation to reset
+    setTimeout(() => {
+        display.innerHTML = `<h2>오늘의 추천 메뉴는...</h2><p class="food-item">${recommendedFood}</p>`;
+        display.classList.add('reveal');
+    }, 100);
 });
 
 // --- Theme Toggle ---

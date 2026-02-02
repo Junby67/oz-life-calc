@@ -54,18 +54,51 @@ h1 {
     transition: text-shadow 0.3s;
 }
 
-.display {
+.food-display {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
     margin-bottom: 40px;
     min-height: 100px;
+    padding: 20px;
+    border: 2px dashed var(--border-color);
+    border-radius: 15px;
+    transition: border-color 0.3s;
 }
 
-lotto-ball {
-    display: inline-block;
+.food-display h2 {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin: 0 0 10px;
+    transition: color 0.3s;
 }
+
+.food-display .food-item {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 0;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.food-display.reveal .food-item {
+    animation: reveal-effect 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes reveal-effect {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 
 #generate-btn {
     background-color: var(--primary-color);
