@@ -22,7 +22,7 @@ export default function RootLayout({
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4369552082623327"
           crossOrigin="anonymous"
-          strategy="lazyOnload" // Use lazyOnload strategy for AdSense
+          strategy="beforeInteractive" // Changed strategy for AdSense verification
         />
         {children}
       </body>
